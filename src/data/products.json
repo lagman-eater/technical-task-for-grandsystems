@@ -1,74 +1,74 @@
 [
     {
         "id": 1,
-        "name": "Product 1",
-        "category": "Category A",
+        "name": "Штаны классические",
+        "category": "Штаны",
         "price": 100,
-        "image": "",
+        "image": "https://images.prom.ua/4591386847_w600_h600_4591386847.jpg",
         "isFavorite": false
     },
     {
         "id": 2,
-        "name": "Product 2",
-        "category": "Category B",
+        "name": "Кофта черная хлопок",
+        "category": "Кофты",
         "price": 200,
-        "image": "",
+        "image": "https://static.insales-cdn.com/images/products/1/5835/433731275/%D0%A7%D1%91%D1%80%D0%BD%D1%8B%D0%B92.png",
         "isFavorite": false
     },
     {
         "id": 3,
-        "name": "Product 3",
-        "category": "Category C",
+        "name": "Тулфи классические",
+        "category": "Обувь",
         "price": 100,
-        "image": "",
+        "image": "https://itaita.ru/upload/medialibrary/f04/f0457c61d8e552520abaf0c6b8d54815.jpg",
         "isFavorite": false
     },
     {
         "id": 4,
-        "name": "Product 4",
-        "category": "Category A",
+        "name": "Джинсы",
+        "category": "Штаны",
         "price": 100,
-        "image": "",
+        "image": "https://conteshop.ru/media/catalog/product/cache/11/image/1405x1879/602f0fa2c1f0d1ba5e241f914e856ff9/e/5/e54fd779db6fe597bf62d42b79681b47.jpg?v=11",
         "isFavorite": false
     },
     {
         "id": 5,
-        "name": "Product 5",
-        "category": "Category B",
+        "name": "Толстовка синяя",
+        "category": "Кофты",
         "price": 100,
-        "image": "",
+        "image": "https://express72.ru/upload/iblock/c59/3al5q833htp28yztd939cshht3xae0nt/wui21450_2_1000x1000.jpg",
         "isFavorite": false
     },
     {
         "id": 6,
-        "name": "Product 6",
-        "category": "Category C",
+        "name": "Кеды",
+        "category": "Обувь",
         "price": 100,
-        "image": "",
+        "image": "https://files.gifts.ru/reviewer/tb/3/6840.30_1_500.jpg",
         "isFavorite": false
       },
       {
         "id": 7,
-        "name": "Product 7",
-        "category": "Category A",
+        "name": "Брюки телесные",
+        "category": "Штаны",
         "price": 100,
-        "image": "",
+        "image": "https://cdn.hangrr.com/v7/s3/product/430/khaki-cream-cotton-pants-multi.webp",
         "isFavorite": false
       },
       {
         "id": 8,
-        "name": "Product 8",
-        "category": "Category B",
+        "name": "Рубашка",
+        "category": "Кофты",
         "price": 100,
-        "image": "",
+        "image": "https://printing-t-shirts.podaru.ru/assets/products/52102/6561.10_1_tif_1000x1000.jpg",
         "isFavorite": false
       },
       {
         "id": 9,
-        "name": "Product 9",
-        "category": "Category C",
+        "name": "Кроссовки спортивные",
+        "category": "Обувь",
         "price": 100,
-        "image": "",
+        "image": "https://jogel.pro/upload/resize_cache/iblock/ed9/655_428_0/q41h9s6y2zxez0hipjd577tffi6g11ib.png",
         "isFavorite": false
       }
 ]

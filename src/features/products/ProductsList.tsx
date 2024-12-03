@@ -4,6 +4,7 @@ import { setProducts } from './productsSlice';
 import { RootState } from '../../app/store';
 import ProductItem from './ProductItem';
 import productData from '../../data/products.json'
+import styles from '../../styles/Products.module.css'
 
 const ProductsList: React.FC = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const ProductsList: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <div className="products-list">
+    <div className={styles.productList}>
       {products.map((product) => (
         <ProductItem key={product.id} product={product} />
       ))}
