@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { saveToLocalStorage } from '../../utilities/localStorage'  // Импортируем функцию сохранения в localStorage
 
 interface Product {
   id: number;
@@ -20,7 +21,7 @@ interface ProductsState {
 const initialState: ProductsState = {
   items: [],
   filteredItems: [],
-  favorites: [],
+  favorites: JSON.parse(localStorage.getItem('favorites') || '[]'),  // Загружаем избранные из localStorage
   searchQuery: '',
   selectedCategory: null,
 };
@@ -40,6 +41,9 @@ const productsSlice = createSlice({
       } else {
         state.favorites.push(id);
       }
+      
+      // Сохраняем список избранных в localStorage
+      saveToLocalStorage('favorites', state.favorites);
     },
     setSearchQuery(state, action: PayloadAction<string>) {
       state.searchQuery = action.payload;
