@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavorite } from './productsSlice'
 import { RootState } from '../../app/store';
+import styles from '../../styles/Products.module.css'
 
 interface Product {
   id: number;
@@ -25,13 +26,13 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   };
 
   return (
-    <div className="product-item">
+    <div className={styles.productItem}>
       <img src={product.image} alt={product.name} />
       <h3>{product.name}</h3>
       <p>{product.category}</p>
       <p>${product.price}</p>
       <button onClick={handleFavoriteToggle}>
-        {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+        {isFavorite ? 'Убрать из избранного' : 'Добавить в избранное'}
       </button>
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../app/store';
 import { setSelectedCategory, filterProducts } from '../features/products/productsSlice';
+import styles from '../styles/Components.module.css'
 
 const Filters: React.FC = () => {
     const dispatch = useDispatch();
@@ -15,34 +16,37 @@ const Filters: React.FC = () => {
     };
 
     const handleFavoritesToggle = () => {
-        dispatch(setSelectedCategory('favorites'));
-        dispatch(filterProducts());
+        if (selectedCategory === 'favorites') {
+            handleCategoryChange(null);
+        } else {
+            handleCategoryChange('favorites');
+        }
     };
 
     return (
-        <div className="filters">
+        <div className={styles.filters}>
             <h3>Фильтры</h3>
-            <div className="category-filters">
-                <button
-                    onClick={() => handleCategoryChange(null)}
-                    className={selectedCategory === null ? 'active' : ''}
+
+            <div className={styles.categoryFilters}>
+                <select
+                    value={selectedCategory || ''}
+                    onChange={(e) =>
+                        handleCategoryChange(e.target.value || null)
+                    }
                 >
-                    Все категории
-                </button>
-                {categories.map((category) => (
-                    <button
-                        key={category}
-                        onClick={() => handleCategoryChange(category)}
-                        className={selectedCategory === category ? 'active' : ''}
-                    >
-                        {category}
-                    </button>
-                ))}
+                    <option value="">Все категории</option>
+                    {categories.map((category) => (
+                        <option key={category} value={category}>
+                            {category}
+                        </option>
+                    ))}
+                </select>
             </div>
-            <div className="favorites-filter">
+
+            <div className={styles.favoritesFilter}>
                 <button
                     onClick={handleFavoritesToggle}
-                    className={selectedCategory === 'favorites' ? 'active' : ''}
+                    className={selectedCategory === 'favorites' ? styles.active : ''}
                 >
                     Избранное
                 </button>
