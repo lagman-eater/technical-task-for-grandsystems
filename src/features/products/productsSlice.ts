@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { saveToLocalStorage } from '../../utilities/localStorage'  // Импортируем функцию сохранения в localStorage
+import { saveToLocalStorage } from '../../utilities/localStorage'
 
 interface Product {
   id: number;
@@ -21,7 +21,7 @@ interface ProductsState {
 const initialState: ProductsState = {
   items: [],
   filteredItems: [],
-  favorites: JSON.parse(localStorage.getItem('favorites') || '[]'),  // Загружаем избранные из localStorage
+  favorites: JSON.parse(localStorage.getItem('favorites') || '[]'),
   searchQuery: '',
   selectedCategory: null,
 };
@@ -36,28 +36,53 @@ const productsSlice = createSlice({
     },
     toggleFavorite(state, action: PayloadAction<number>) {
       const id = action.payload;
+
       if (state.favorites.includes(id)) {
         state.favorites = state.favorites.filter((favId) => favId !== id);
       } else {
         state.favorites.push(id);
       }
-      
-      // Сохраняем список избранных в localStorage
+
       saveToLocalStorage('favorites', state.favorites);
+
+      state.filteredItems = state.items.filter((product) => {
+        const matchesSearch = product.name
+          .toLowerCase()
+          .includes(state.searchQuery.toLowerCase());
+
+        if (state.selectedCategory === 'favorites') {
+          return matchesSearch && state.favorites.includes(product.id);
+        }
+
+        const matchesCategory =
+          !state.selectedCategory || product.category === state.selectedCategory;
+
+        return matchesSearch && matchesCategory;
+      });
     },
+
     setSearchQuery(state, action: PayloadAction<string>) {
       state.searchQuery = action.payload;
     },
     setSelectedCategory(state, action: PayloadAction<string | null>) {
       state.selectedCategory = action.payload;
     },
+    setFavorites(state, action: PayloadAction<number[]>) {
+      state.favorites = action.payload;
+    },
     filterProducts(state) {
       state.filteredItems = state.items.filter((product) => {
         const matchesSearch = product.name
           .toLowerCase()
           .includes(state.searchQuery.toLowerCase());
+
+        if (state.selectedCategory === 'favorites') {
+          return matchesSearch && state.favorites.includes(product.id);
+        }
+
         const matchesCategory =
           !state.selectedCategory || product.category === state.selectedCategory;
+
         return matchesSearch && matchesCategory;
       });
     },
