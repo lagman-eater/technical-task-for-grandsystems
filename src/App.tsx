@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setProducts } from './features/products/productsSlice';
 import productsData from './data/products.json'
 import styles from './styles/App.module.css';
+import ProductsList from './features/products/ProductsList';
 
 function App() {
   const dispatch = useDispatch();
@@ -14,10 +15,7 @@ function App() {
   return (
     <div>
       <h1 className={styles.title}>Product List</h1>
-      {productsData.map(e => (
-        <div>{e.name}</div>
-      ))
-      }
+      <ProductsList />
     </div>
   );
 }
